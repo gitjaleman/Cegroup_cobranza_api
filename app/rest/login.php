@@ -13,9 +13,8 @@ switch ($_SERVER['REQUEST_METHOD']){
 function SELECT_LOGIN(){
   $user = $_GET['u'];
   $pass = md5($_GET['p']);
-  $type = $_GET['t'];
   $obj = new conn;
-  $sql = "SELECT * FROM `usuario` WHERE `username`= '$user' AND `password` = '$pass' AND `usertype` = '$type' ";
+  $sql = "SELECT * FROM `usuarios` WHERE `username`= '$user' AND `userpass` = '$pass' AND `estado` = 'TRUE' ";
   $con = $obj->query($sql);
   $num = mysqli_num_rows($con);
   $data['num'] = $num;
