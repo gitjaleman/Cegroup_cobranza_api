@@ -11,6 +11,9 @@ switch ($_SERVER['REQUEST_METHOD']){
   case 'GET':
       $return = SELECT_ESTADOS();
     break;
+  case 'POST':
+      $return = INSERT_ESTADOS();
+    break;
 
 }
 
@@ -67,7 +70,22 @@ function SELECT_ESTADOS_SUBS(){
 
 
 
+function INSERT_ESTADOS(){
+  $operacion =  mb_strtoupper($_POST['operacion']);
+  $estado =  mb_strtoupper($_POST['estado']);
+  $sub =  mb_strtoupper($_POST['sub']);
+  $obj = new conn;
+  $sql = "UPDATE `t_procesos` SET `estado` = '$estado', `sub` = '$sub' 
+  WHERE `t_procesos`.`operacion` =  '$operacion' ";
+  $con = $obj->query($sql);
 
+  if ($con) {
+    $data['data'] = true;
+  } else {
+    $data['data'] = $sql;
+  }
+  return $data;
+}
 
 
 

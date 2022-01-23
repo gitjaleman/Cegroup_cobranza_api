@@ -12,15 +12,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     $return = SELECT_TELEFONO();
     break;
   case 'POST':
-    $return = null;
-    break;
-
-  case 'PUT':
-    $return = null;
-    break;
-
-  case 'DELETE':
-    $return = null;
+    $return = INSERT_TELEFONO();
     break;
 }
 
@@ -46,8 +38,7 @@ function SELECT_TELEFONOS_DATA($operacion)
 {
   $obj = new conn;
   $sql = "SELECT * FROM `t_telefonos`
-
-   WHERE  `t_telefonos`.`operacion` = '$operacion'";
+   WHERE  `t_telefonos`.`operacion` = '$operacion' ORDER BY `t_telefonos`.`id` DESC";
   $con = $obj->query($sql);
   $num = mysqli_num_rows($con);
   $data['num'] = $num;
@@ -57,6 +48,26 @@ function SELECT_TELEFONOS_DATA($operacion)
     }
   } else {
     $data['data'] = FALSE;
+  }
+  return $data;
+}
+
+function INSERT_TELEFONO(){
+  $operacion =  mb_strtoupper($_POST['operacion']);
+  $asesor =  mb_strtoupper($_POST['asesor']);
+  $telefono =  mb_strtoupper($_POST['telefono']);
+  $detalle =  mb_strtoupper($_POST['detalle']);
+  $obj = new conn;
+  $sql = "INSERT INTO `t_telefonos` 
+  (`id`, `operacion`, `asesor`,`telefono`, `detalle`) 
+  VALUES 
+  (NULL, '$operacion', '$asesor', '$telefono', '$detalle')";
+  $con = $obj->query($sql);
+
+  if ($con) {
+    $data['data'] = true;
+  } else {
+    $data['data'] = $sql;
   }
   return $data;
 }
