@@ -10,6 +10,7 @@ class ApiController{
   public function g_acuerdos()                {Restapi::render("g_acuerdos");}
   public function g_estados()                 {Restapi::render("g_estados");}
   public function g_alertas()                 {Restapi::render("g_alertas");}
+  public function g_resumen()                 {Restapi::render("g_resumen");}
 
 
 
