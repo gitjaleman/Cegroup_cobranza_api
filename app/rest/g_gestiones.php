@@ -107,7 +107,9 @@ function INSERT_GESTION(){
     $data['data'] = true;
     $sql2 = "UPDATE `t_procesos` SET `fgestion` = '$fecha' ,  `asesor` = '$asesor' 
     WHERE `t_procesos`.`operacion` =  '$operacion' ";
+    $sql3="DELETE FROM `t_alertas` WHERE `t_alertas`.`operacion` =   '$operacion'";
     $obj->query($sql2);
+    $obj->query($sql3);
   } else {
     $data['data'] = $sql;
   }

@@ -11,6 +11,9 @@ switch ($_SERVER['REQUEST_METHOD']){
   case 'GET':
       $return = SELECT_ALERTAS();
     break;
+  case 'POST':
+      $return = INSERT_ALERTA();
+    break;
 
 }
 
@@ -34,7 +37,7 @@ function SELECT_ALERTAS(){
 function SELECT_ALERTAS_OPERACION($operacion){
   $obj = new conn;
   $sql = "SELECT * FROM `t_alertas` 
-  WHERE `t_alertas`.`operacion` = '$operacion'";
+  WHERE `t_alertas`.`operacion` = '$operacion' ORDER BY `t_alertas`.`fecha` DESC";
   $con = $obj->query($sql);
   $num = mysqli_num_rows($con);
   $data['num'] = $num;
@@ -50,7 +53,22 @@ function SELECT_ALERTAS_OPERACION($operacion){
 
 
 
-
+function INSERT_ALERTA(){
+  $fecha =  mb_strtoupper($_POST['fecha']);
+  $detalle =  mb_strtoupper($_POST['detalle']);
+  $operacion =  mb_strtoupper($_POST['operacion']);
+  $asesor =  mb_strtoupper($_POST['asesor']);
+  $obj = new conn;
+  $sql = "INSERT INTO `t_alertas` (`id`, `operacion`, `asesor`, `fecha`, `alerta`) 
+  VALUES (NULL, '$operacion', '$asesor', '$fecha', '$detalle');";
+  $con = $obj->query($sql);
+  if ($con) {
+    $data['data'] = true;
+  } else {
+    $data['data'] = $sql;
+  }
+  return $data;
+}
 
 
 

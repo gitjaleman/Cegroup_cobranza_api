@@ -52,6 +52,14 @@ function SELECT_TELEFONOS_DATA($operacion)
   return $data;
 }
 
+
+///////////////////
+//               //
+//    INSERT     //
+//               //
+///////////////////
+
+
 function INSERT_TELEFONO(){
   $operacion =  mb_strtoupper($_POST['operacion']);
   $asesor =  mb_strtoupper($_POST['asesor']);
