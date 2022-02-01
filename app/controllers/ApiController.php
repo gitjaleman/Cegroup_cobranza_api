@@ -11,6 +11,7 @@ class ApiController{
   public function g_estados()                 {Restapi::render("g_estados");}
   public function g_alertas()                 {Restapi::render("g_alertas");}
   public function g_resumen()                 {Restapi::render("g_resumen");}
+  public function b_data()                    {Restapi::render("b_data");}
 
 
 

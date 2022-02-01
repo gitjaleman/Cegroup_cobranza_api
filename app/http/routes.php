@@ -11,6 +11,7 @@
   Router::add("g_estados",              "ApiController",  "g_estados");
   Router::add("g_alertas",              "ApiController",  "g_alertas");
   Router::add("g_resumen",              "ApiController",  "g_resumen");
+  Router::add("b_data",                 "ApiController",  "b_data");
 
 
 
