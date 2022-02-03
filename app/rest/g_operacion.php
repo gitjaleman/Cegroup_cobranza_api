@@ -88,7 +88,7 @@ function SELECT_OPERACION_DATA($operacion)
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;

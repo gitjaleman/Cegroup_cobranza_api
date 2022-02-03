@@ -44,7 +44,7 @@ function SELECT_ACUERDOS_OPERACION($operacion)
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -58,7 +58,7 @@ function INSERT_ACUERDOS(){
   $fecha_registro = date('Ymd');
   $fecha_pago =  mb_strtoupper($_POST['fecha_pago']);
   $tipo_cliente =  mb_strtoupper($_POST['tipo_cliente']);
-  $nombre_cliente =  mb_strtoupper($_POST['nombre_cliente']);
+  $nombre_cliente =  format_post($_POST['nombre_cliente']);
   $valor =  mb_strtoupper($_POST['valor']);
   $operacion =  mb_strtoupper($_POST['operacion']);
   $asesor =  mb_strtoupper($_POST['asesor']);

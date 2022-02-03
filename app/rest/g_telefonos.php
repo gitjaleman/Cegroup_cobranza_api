@@ -44,7 +44,7 @@ function SELECT_TELEFONOS_DATA($operacion)
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -64,7 +64,7 @@ function INSERT_TELEFONO(){
   $operacion =  mb_strtoupper($_POST['operacion']);
   $asesor =  mb_strtoupper($_POST['asesor']);
   $telefono =  mb_strtoupper($_POST['telefono']);
-  $detalle =  mb_strtoupper($_POST['detalle']);
+  $detalle =  format_post($_POST['detalle']);
   $obj = new conn;
   $sql = "INSERT INTO `t_telefonos` 
   (`id`, `operacion`, `asesor`,`telefono`, `detalle`) 

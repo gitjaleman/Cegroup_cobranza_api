@@ -54,7 +54,7 @@ function SELECT_GESTION_INIT($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = false;
@@ -72,7 +72,7 @@ function SELECT_GESTION_ALL($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] = $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = false;
@@ -92,7 +92,7 @@ function INSERT_GESTION(){
   date_default_timezone_set('America/Bogota');
   $fecha = date('Ymd');
   $hora = date('h:i:s A');
-  $gestion =  mb_strtoupper($_POST['gestion']);
+  $gestion =  format_post($_POST['gestion']);
   $operacion =  mb_strtoupper($_POST['operacion']);
   $nombre =  mb_strtoupper($_POST['nombre']);
   $asesor =  mb_strtoupper($_POST['asesor']);

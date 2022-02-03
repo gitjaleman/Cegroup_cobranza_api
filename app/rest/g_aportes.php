@@ -44,7 +44,7 @@ function SELECT_APORTES_OPERACION($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -61,7 +61,7 @@ function SUM_APORTES_OPERACION($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] = $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = 0;

@@ -51,7 +51,7 @@ function SELECT_ACUERDOS_OPERACION($v,$a){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -72,7 +72,7 @@ function SELECT_ACUERDOS_MES($v,$a){
   $data['sql'] = $sql;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -90,7 +90,7 @@ function SELECT_ACUERDOS_FECHA($v,$a){
   $data['sql'] = $sql;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;

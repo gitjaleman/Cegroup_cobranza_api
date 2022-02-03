@@ -53,7 +53,7 @@ function SELECT_RESUMEN_INIT($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = false;
@@ -70,7 +70,7 @@ function SELECT_RESUMEN_ALL($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] = $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = false;
@@ -90,7 +90,7 @@ function INSERT_RESUMEN(){
   date_default_timezone_set('America/Bogota');
   $fingreso =  mb_strtoupper($_POST['fingreso']);
   $cedula =  mb_strtoupper($_POST['cedula']);
-  $nombre =  mb_strtoupper($_POST['nombre']);
+  $nombre =  format_post($_POST['nombre']);
   $operacion =  mb_strtoupper($_POST['operacion']);
   $tipo =  mb_strtoupper($_POST['tipo']);
   $canal =  mb_strtoupper($_POST['canal']);

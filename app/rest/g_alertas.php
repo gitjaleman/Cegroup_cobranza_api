@@ -43,7 +43,7 @@ function SELECT_ALERTAS_OPERACION($operacion){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -55,7 +55,7 @@ function SELECT_ALERTAS_OPERACION($operacion){
 
 function INSERT_ALERTA(){
   $fecha =  mb_strtoupper($_POST['fecha']);
-  $detalle =  mb_strtoupper($_POST['detalle']);
+  $detalle =  format_post($_POST['detalle']);
   $operacion =  mb_strtoupper($_POST['operacion']);
   $asesor =  mb_strtoupper($_POST['asesor']);
   $obj = new conn;

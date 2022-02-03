@@ -51,7 +51,7 @@ function SELECT_DATA_OPERACION($v){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -76,7 +76,7 @@ function SELECT_DATA_TITULAR($t,$v){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -101,7 +101,7 @@ function SELECT_DATA_CODEUDOR($t,$v){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] =  array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
@@ -126,7 +126,7 @@ function SELECT_DATA_GARANTE($t,$v){
   $data['num'] = $num;
   if ($num >= 1) {
     while ($d = mysqli_fetch_assoc($con)) {
-      $data['data'][] =  $d;
+      $data['data'][] = array_map(CODING, $d);
     }
   } else {
     $data['data'] = FALSE;
