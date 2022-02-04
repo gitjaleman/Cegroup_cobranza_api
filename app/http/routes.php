@@ -11,8 +11,11 @@
   Router::add("g_estados",              "ApiController",  "g_estados");
   Router::add("g_alertas",              "ApiController",  "g_alertas");
   Router::add("g_resumen",              "ApiController",  "g_resumen");
+  Router::add("g_mensaje",              "ApiController",  "g_mensaje");
   Router::add("b_data",                 "ApiController",  "b_data");
   Router::add("b_acuerdos",             "ApiController",  "b_acuerdos");
+  Router::add("d_cartera",              "ApiController",  "d_cartera");
+  Router::add("d_campana",              "ApiController",  "d_campana");
 
 
 
