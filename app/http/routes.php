@@ -14,6 +14,7 @@
   Router::add("g_mensaje",              "ApiController",  "g_mensaje");
   Router::add("b_data",                 "ApiController",  "b_data");
   Router::add("b_acuerdos",             "ApiController",  "b_acuerdos");
+  Router::add("b_datafilter",           "ApiController",  "b_datafilter");
   Router::add("d_cartera",              "ApiController",  "d_cartera");
   Router::add("d_campana",              "ApiController",  "d_campana");
 
