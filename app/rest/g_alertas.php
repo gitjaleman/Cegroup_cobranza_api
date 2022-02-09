@@ -55,12 +55,49 @@ function SELECT_ALERTAS_OPERACION($operacion){
 
 function INSERT_ALERTA(){
   $fecha =  mb_strtoupper($_POST['fecha']);
+  $num =  mb_strtoupper($_POST['num']);
   $detalle =  format_post($_POST['detalle']);
   $operacion =  mb_strtoupper($_POST['operacion']);
   $asesor =  mb_strtoupper($_POST['asesor']);
+  switch ($num) {
+    case '08':
+      $hora = '08:00 AM';
+      break;
+    case '09':
+      $hora = '09:00 AM';
+      break;
+    case '10':
+      $hora = '10:00 AM';
+      break;
+    case '11':
+      $hora = '11:00 AM';
+      break;
+    case '12':
+      $hora = '12:00 MM';
+      break;
+    case '13':
+      $hora = '01:00 PM';
+      break;
+    case '14':
+      $hora = '02:00 PM';
+      break;
+    case '15':
+      $hora = '03:00 PM';
+      break;
+    case '16':
+      $hora = '04:00 PM';
+      break;
+    case '17':
+      $hora = '05:00 PM';
+      break;
+    case '18':
+      $hora = '06:00 PM';
+      break;
+  }
+  
   $obj = new conn;
-  $sql = "INSERT INTO `t_alertas` (`id`, `operacion`, `asesor`, `fecha`, `alerta`) 
-  VALUES (NULL, '$operacion', '$asesor', '$fecha', '$detalle');";
+  $sql = "INSERT INTO `t_alertas` (`id`, `operacion`, `asesor`, `fecha`, `hora`, `num`, `alerta`) 
+  VALUES (NULL, '$operacion', '$asesor', '$fecha', '$hora', '$num','$detalle');";
   $con = $obj->query($sql);
   if ($con) {
     $data['data'] = true;
