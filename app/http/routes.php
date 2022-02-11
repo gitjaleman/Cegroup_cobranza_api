@@ -16,8 +16,11 @@
   Router::add("b_acuerdos",             "ApiController",  "b_acuerdos");
   Router::add("b_alertas",              "ApiController",  "b_alertas");
   Router::add("b_datafilter",           "ApiController",  "b_datafilter");
+  Router::add("b_resumen",              "ApiController",  "b_resumen");
   Router::add("d_cartera",              "ApiController",  "d_cartera");
   Router::add("d_campana",              "ApiController",  "d_campana");
+  Router::add("d_usuario",              "ApiController",  "d_usuario");
+  Router::add("d_usuario_cambio",       "ApiController",  "d_usuario_cambio");
 
 
 

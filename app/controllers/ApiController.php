@@ -16,8 +16,11 @@ class ApiController{
   public function b_acuerdos()                {Restapi::render("b_acuerdos");}
   public function b_alertas()                 {Restapi::render("b_alertas");}
   public function b_datafilter()              {Restapi::render("b_datafilter");}
+  public function b_resumen()                 {Restapi::render("b_resumen");}
   public function d_cartera()                 {Restapi::render("d_cartera");}
   public function d_campana()                 {Restapi::render("d_campana");}
+  public function d_usuario()                 {Restapi::render("d_usuario");}
+  public function d_usuario_cambio()          {Restapi::render("d_usuario_cambio");}
 
 
 

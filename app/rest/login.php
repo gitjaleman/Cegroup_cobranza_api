@@ -14,7 +14,7 @@ function SELECT_LOGIN(){
   $user = $_GET['u'];
   $pass = md5($_GET['p']);
   $obj = new conn;
-  $sql = "SELECT * FROM `usuarios` WHERE `username`= '$user' AND `userpass` = '$pass' AND `estado` = 'TRUE' ";
+  $sql = "SELECT * FROM `t_usuarios` WHERE `username`= '$user' AND `userpass` = '$pass' AND `estado` = 'TRUE' ";
   $con = $obj->query($sql);
   $num = mysqli_num_rows($con);
   $data['num'] = $num;
