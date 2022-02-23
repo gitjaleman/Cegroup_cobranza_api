@@ -21,13 +21,7 @@
   Router::add("d_campana",              "ApiController",  "d_campana");
   Router::add("d_usuario",              "ApiController",  "d_usuario");
   Router::add("d_usuario_cambio",       "ApiController",  "d_usuario_cambio");
-
-
-
- 
-
-
-
-
+  Router::add("admin_asesor",           "ApiController",  "admin_asesor");
+  
 
 ?>

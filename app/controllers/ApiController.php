@@ -21,6 +21,7 @@ class ApiController{
   public function d_campana()                 {Restapi::render("d_campana");}
   public function d_usuario()                 {Restapi::render("d_usuario");}
   public function d_usuario_cambio()          {Restapi::render("d_usuario_cambio");}
+  public function admin_asesor()              {Restapi::render("admin_asesor");}
 
 
 
